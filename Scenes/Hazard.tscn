@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dp04schyhw7v6"]
+
+[sub_resource type="GDScript" id="GDScript_0kma2"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_body_entered(body: Node2D) -> void:
+	if body is PlayerController and body.invulnerable:
+		return
+	else:
+		print(\"HIT!\") 
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqnqc"]
+
+[node name="Area2D" type="Area2D" unique_id=1893704793]
+script = SubResource("GDScript_0kma2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=686312727]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(0.49983597, 0.4989662)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=855147168]
+shape = SubResource("RectangleShape2D_hqnqc")

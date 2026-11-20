@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://cc14t5guay5oy"]
 
+[ext_resource type="Script" uid="uid://cbiysivdcnx1d" path="res://Scenes/PlayerCamera.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cyj54dr4ldr03" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dp04schyhw7v6" path="res://Scenes/Hazard.tscn" id="2_bo1nx"]
 
 [node name="Main" type="Node2D" unique_id=857523993]
 
-[node name="Player" parent="." unique_id=252578525 instance=ExtResource("1_jjgbg")]
-position = Vector2(40, 38)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1555369681]
+position = Vector2(39, 39)
 zoom = Vector2(3, 3)
+script = ExtResource("1_8gbba")
+target_path = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=252578525 instance=ExtResource("1_jjgbg")]
+position = Vector2(124.52481, 13.555832)
+dash_speed = 458.575
+
+[node name="Area2D" parent="." unique_id=1893704793 instance=ExtResource("2_bo1nx")]
+position = Vector2(39, 40)
